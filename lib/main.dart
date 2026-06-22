@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog_app/pages/home_page.dart';
 import 'package:flutter_catalog_app/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,22 +11,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  // build method is called when the widget is inserted into the widget tree. It describes the part of the user interface represented by this widget.
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme is a property of MaterialApp that defines the colors and fonts to use for the app. It is used to customize the look and feel of the app.
       theme: ThemeData(
         // primaryColor: Colors.grey,
         primarySwatch: Colors.deepPurple,
+        // fontFamily is a property of ThemeData that defines the default font family for the app. It is used to set the font family for all the text in the app. The font family is specified as a string argument to the fontFamily property of the ThemeData constructor. We can use GoogleFonts to set the font family for the app. GoogleFonts is a package that provides a collection of fonts that can be used in Flutter apps. We can use GoogleFonts to set the font family for the app by specifying the name of the font as a string argument to the GoogleFonts constructor. For example, if we want to use the Lato font for our app, we can set the fontFamily property of ThemeData to GoogleFonts.lato().fontFamily.
+        fontFamily: GoogleFonts.lato().fontFamily,
       ),
-      // home: HomePage(),
-      // initialRoute is a property of MaterialApp that defines the initial route for the app. It is used to specify which route should be displayed when the app is launched. In this case, it is set to "/login", which means that the LoginPage will be displayed when the app is launched.
-      initialRoute: "/login",
-      // routes is a property of MaterialApp that defines the routes for the app. It is a map that maps route names to the widget that should be displayed for that route. When the user navigates to a route, the corresponding widget is displayed.
+      home: HomePage(),
       routes: {
-        // The "/" route is the default route that is displayed when the app is launched. It is defined as a key in the routes map, and its value is a function that returns the widget to be displayed for that route. In this case, it returns an instance of HomePage.
-        // But as we have already defined the home property of MaterialApp to HomePage, we don't need to define the "/" route in the routes map. The home property takes precedence over the routes map for the default route. If we define both the home property and the "/" route in the routes map, the home property will be used for the default route, and the "/" route in the routes map will be ignored. Therefore, it is not necessary to define the "/" route in the routes map if we have already defined the home property.
-        "/": (context) => HomePage(),
         "/home": (context) => HomePage(),
         "/login": (context) => LoginPage(),
       },
