@@ -18,12 +18,15 @@ class MyApp extends StatelessWidget {
         // primaryColor: Colors.grey,
         primarySwatch: Colors.deepPurple,
       ),
-      home: HomePage(),
+      // home: HomePage(),
+      // initialRoute is a property of MaterialApp that defines the initial route for the app. It is used to specify which route should be displayed when the app is launched. In this case, it is set to "/login", which means that the LoginPage will be displayed when the app is launched.
+      initialRoute: "/login",
       // routes is a property of MaterialApp that defines the routes for the app. It is a map that maps route names to the widget that should be displayed for that route. When the user navigates to a route, the corresponding widget is displayed.
       routes: {
         // The "/" route is the default route that is displayed when the app is launched. It is defined as a key in the routes map, and its value is a function that returns the widget to be displayed for that route. In this case, it returns an instance of HomePage.
         // But as we have already defined the home property of MaterialApp to HomePage, we don't need to define the "/" route in the routes map. The home property takes precedence over the routes map for the default route. If we define both the home property and the "/" route in the routes map, the home property will be used for the default route, and the "/" route in the routes map will be ignored. Therefore, it is not necessary to define the "/" route in the routes map if we have already defined the home property.
-        // "/": (context) => HomePage(),
+        "/": (context) => HomePage(),
+        "/home": (context) => HomePage(),
         "/login": (context) => LoginPage(),
       },
     );
