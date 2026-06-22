@@ -11,7 +11,8 @@ class HomePage extends StatelessWidget {
       ),
       body: Center(
         child: Text("Catalog"),
-      )
+      ),
+      drawer: Drawer(),
     );
   }
 }
