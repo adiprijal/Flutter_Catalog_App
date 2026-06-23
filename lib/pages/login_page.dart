@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog_app/utils/routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -9,8 +10,6 @@ class LoginPage extends StatelessWidget {
       // appBar: AppBar(
       //   title: Center(child: Text("Login Page")),
       // ),
-      // SingleChildScrollView is used to make the page scrollable when the elements exceed the screen height, preventing overflow errors. It allows the user to scroll through the content if it doesn't fit on the screen.
-      // It takes a single child widget and makes it scrollable, ensuring that all content is accessible even on smaller screens or when the keyboard is open.
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -32,7 +31,6 @@ class LoginPage extends StatelessWidget {
                   ),
                   TextFormField(
                     obscureText: true,
-                    // obscuringCharacter: "*",
                     decoration: InputDecoration(
                       hintText: "Enter your password",
                       labelText: "Password",
@@ -44,99 +42,20 @@ class LoginPage extends StatelessWidget {
                       textStyle: WidgetStateProperty.all(
                         TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
+                      minimumSize: WidgetStateProperty.all(Size(120, 40)),
                       foregroundColor: WidgetStateProperty.all(Colors.white),
                       backgroundColor: WidgetStateProperty.all(Colors.blue),
                     ),
                     child: Text("Login"),
                     onPressed: () {
-                      print("Login button pressed");
+                      // Navigate to the home page when the login button is pressed. The route name is defined in the MyRoutes class, which allows for easy management of route names in one place.
+                      // Navigator class is used to manage the navigation stack and push a new route onto it. The context parameter is used to access the current state of the widget tree and find the appropriate navigator for the current context.
+                      // The pushNamed method is used to navigate to the specified route name, which is defined in the MyRoutes class. This allows for easy management of route names in one place, making it easier to update or change routes in the future.
+                      // When the user presses the login button, the app will navigate to the home page using the route name defined in the MyRoutes class. This allows for easy management of route names in one place, making it easier to update or change routes in the future.
+                      // After routing to the home page, the user can navigate back to the login page using the back button on their device or by using the Navigator.pop method. This allows for easy navigation between different pages in the app.
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
                   ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Enter your name",
-                      labelText: "Name",
-                    ),
-                  ),
-                  TextFormField(
-                    obscureText: true,
-                    // obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      hintText: "Enter your password",
-                      labelText: "Password",
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      textStyle: WidgetStateProperty.all(
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      foregroundColor: WidgetStateProperty.all(Colors.white),
-                      backgroundColor: WidgetStateProperty.all(Colors.blue),
-                    ),
-                    child: Text("Login"),
-                    onPressed: () {
-                      print("Login button pressed");
-                    },
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Enter your name",
-                      labelText: "Name",
-                    ),
-                  ),
-                  TextFormField(
-                    obscureText: true,
-                    // obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      hintText: "Enter your password",
-                      labelText: "Password",
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      textStyle: WidgetStateProperty.all(
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      foregroundColor: WidgetStateProperty.all(Colors.white),
-                      backgroundColor: WidgetStateProperty.all(Colors.blue),
-                    ),
-                    child: Text("Login"),
-                    onPressed: () {
-                      print("Login button pressed");
-                    },
-                  ),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "Enter your name",
-                      labelText: "Name",
-                    ),
-                  ),
-                  TextFormField(
-                    obscureText: true,
-                    // obscuringCharacter: "*",
-                    decoration: InputDecoration(
-                      hintText: "Enter your password",
-                      labelText: "Password",
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ButtonStyle(
-                      textStyle: WidgetStateProperty.all(
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                      foregroundColor: WidgetStateProperty.all(Colors.white),
-                      backgroundColor: WidgetStateProperty.all(Colors.blue),
-                    ),
-                    child: Text("Login"),
-                    onPressed: () {
-                      print("Login button pressed");
-                    },
-                  ),
-                
                 ],
               ),
             ),
