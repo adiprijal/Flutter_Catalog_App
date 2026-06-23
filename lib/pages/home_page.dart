@@ -14,7 +14,6 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Image.asset("assets/images/home-screen.png", width: 300, height: 300),
-            // SizedBox is a widget that takes up space in the layout. It can be used to create space between widgets. In this case, it is used to create space between the image and the text.
             SizedBox(height: 20),
             Text("Catalog", style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold))
           ],

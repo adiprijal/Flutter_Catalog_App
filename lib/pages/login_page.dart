@@ -9,7 +9,9 @@ class LoginPage extends StatelessWidget {
       // appBar: AppBar(
       //   title: Center(child: Text("Login Page")),
       // ),
-      child: Center(
+      // SingleChildScrollView is used to make the page scrollable when the elements exceed the screen height, preventing overflow errors. It allows the user to scroll through the content if it doesn't fit on the screen.
+      // It takes a single child widget and makes it scrollable, ensuring that all content is accessible even on smaller screens or when the keyboard is open.
+      child: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset("assets/images/enter-password.png", height: 200),
@@ -29,16 +31,14 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextFormField(
-                    // obscureText is a property of the TextFormField widget that is used to hide the text entered by the user. It is commonly used for password fields. When obscureText is set to true, the text entered by the user will be replaced with dots or asterisks, making it difficult for others to see what is being typed.
                     obscureText: true,
+                    // obscuringCharacter: "*",
                     decoration: InputDecoration(
                       hintText: "Enter your password",
                       labelText: "Password",
                     ),
                   ),
                   SizedBox(height: 20),
-                  // ElevatedButton is a Material Design button that reacts to touches by filling with color. It is a replacement for RaisedButton.
-                  // The ElevatedButton widget is used to create a button that can be pressed by the user. It has a child widget, which is usually a Text widget, and an onPressed callback that is called when the button is pressed.
                   ElevatedButton(
                     style: ButtonStyle(
                       textStyle: WidgetStateProperty.all(
@@ -52,6 +52,91 @@ class LoginPage extends StatelessWidget {
                       print("Login button pressed");
                     },
                   ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Enter your name",
+                      labelText: "Name",
+                    ),
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    // obscuringCharacter: "*",
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      labelText: "Password",
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      textStyle: WidgetStateProperty.all(
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      foregroundColor: WidgetStateProperty.all(Colors.white),
+                      backgroundColor: WidgetStateProperty.all(Colors.blue),
+                    ),
+                    child: Text("Login"),
+                    onPressed: () {
+                      print("Login button pressed");
+                    },
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Enter your name",
+                      labelText: "Name",
+                    ),
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    // obscuringCharacter: "*",
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      labelText: "Password",
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      textStyle: WidgetStateProperty.all(
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      foregroundColor: WidgetStateProperty.all(Colors.white),
+                      backgroundColor: WidgetStateProperty.all(Colors.blue),
+                    ),
+                    child: Text("Login"),
+                    onPressed: () {
+                      print("Login button pressed");
+                    },
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Enter your name",
+                      labelText: "Name",
+                    ),
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    // obscuringCharacter: "*",
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      labelText: "Password",
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      textStyle: WidgetStateProperty.all(
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      foregroundColor: WidgetStateProperty.all(Colors.white),
+                      backgroundColor: WidgetStateProperty.all(Colors.blue),
+                    ),
+                    child: Text("Login"),
+                    onPressed: () {
+                      print("Login button pressed");
+                    },
+                  ),
+                
                 ],
               ),
             ),
