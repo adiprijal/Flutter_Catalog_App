@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/":(context) => LoginPage(),
-        // Using the static variables from MyRoutes class to define the routes for navigation. This allows for easy management of route names in one place, making it easier to update or change routes in the future.
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
       },

@@ -1,20 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog_app/utils/routes.dart';
 
-class LoginPage extends StatelessWidget {
+// StatefulWidget vs StatelessWidget
+// StatelessWidget: A widget that does not require mutable state. It is immutable and can be built once and reused multiple times. It is suitable for widgets that do not change over time, such as static text or images.
+// Example: Text, Image, Icon, etc.
+// Example use case: A login page that displays a static image and text, where the content does not change based on user interactions or other events.
+
+// StatefulWidget: A widget that requires mutable state. It can be rebuilt multiple times and can change over time. It is suitable for widgets that need to update their appearance or behavior based on user interactions or other events.
+// Example: Checkbox, TextField, Slider, etc.
+// Example use case: A shopping cart page that needs to update the total price and item count based on user interactions, such as adding or removing items from the cart.
+
+// In a single page, you can use both StatelessWidget and StatefulWidget depending on the requirements of the specific widgets you are implementing. For example, you might have a login page that is a StatelessWidget, but within that page, you could have a StatefulWidget for a form that needs to validate user input or show error messages.
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String username = "";
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      // appBar: AppBar(
-      //   title: Center(child: Text("Login Page")),
-      // ),
       child: SingleChildScrollView(
         child: Column(
           children: [
             Image.asset("assets/images/enter-password.png", height: 200),
-            Text("Login"),
+            SizedBox(height: 20),
+            Text("Welcome $username", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -28,6 +43,9 @@ class LoginPage extends StatelessWidget {
                       hintText: "Enter your name",
                       labelText: "Name",
                     ),
+                    onChanged: (value) => setState(() {
+                      username = value;
+                    }),
                   ),
                   TextFormField(
                     obscureText: true,
@@ -48,11 +66,6 @@ class LoginPage extends StatelessWidget {
                     ),
                     child: Text("Login"),
                     onPressed: () {
-                      // Navigate to the home page when the login button is pressed. The route name is defined in the MyRoutes class, which allows for easy management of route names in one place.
-                      // Navigator class is used to manage the navigation stack and push a new route onto it. The context parameter is used to access the current state of the widget tree and find the appropriate navigator for the current context.
-                      // The pushNamed method is used to navigate to the specified route name, which is defined in the MyRoutes class. This allows for easy management of route names in one place, making it easier to update or change routes in the future.
-                      // When the user presses the login button, the app will navigate to the home page using the route name defined in the MyRoutes class. This allows for easy management of route names in one place, making it easier to update or change routes in the future.
-                      // After routing to the home page, the user can navigate back to the login page using the back button on their device or by using the Navigator.pop method. This allows for easy navigation between different pages in the app.
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
                   ),
