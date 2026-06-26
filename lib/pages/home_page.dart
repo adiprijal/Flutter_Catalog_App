@@ -7,9 +7,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: Text("Catalog App"))),
+      appBar: AppBar(
+        title: Text("Catalog App")
+      ),
       drawer: MyDrawer(),
-      body: Center(
+      body: Container(
+        color: Colors.white,
+        width: double.infinity,
         child: Column(
           children: [
             Image.asset(
