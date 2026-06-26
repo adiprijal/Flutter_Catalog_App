@@ -1,6 +1,7 @@
 // Drawer widget for the app
 // It provides a navigation drawer that can be used to navigate between different pages of the app.
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -51,6 +52,36 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
             ),
+            ListTile(
+              leading: Icon(Icons.home, color: Colors.white),
+              title: Text("Home",
+              style: TextStyle(color: Colors.white),
+              textScaler: TextScaler.linear(1.2),),
+            ),
+            ListTile(
+              leading: Icon(Icons.dashboard, color: Colors.white),
+              title: Text(
+                "Dashboard",
+                style: TextStyle(color: Colors.white),
+                textScaler: TextScaler.linear(1.2),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings, color: Colors.white),
+              title: Text(
+                "Settings",
+                style: TextStyle(color: Colors.white),
+                textScaler: TextScaler.linear(1.2),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.contact_support_sharp, color: Colors.white),
+              title: Text(
+                "Contact Support",
+                style: TextStyle(color: Colors.white),
+                textScaler: TextScaler.linear(1.2),
+              ),
+            )
           ],
         ),
       ),
