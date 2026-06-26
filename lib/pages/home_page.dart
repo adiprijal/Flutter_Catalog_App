@@ -16,12 +16,6 @@ class HomePage extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            Image.asset(
-              "assets/images/home-screen.png",
-              width: 300,
-              height: 300,
-            ),
-            SizedBox(height: 20),
             Text(
               "Catalog",
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
