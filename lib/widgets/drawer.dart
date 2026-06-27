@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog_app/utils/routes.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final String profilePicUrl = "https://avatars.githubusercontent.com/u/94229057?v=4";
+    final String profilePicUrl =
+        "https://avatars.githubusercontent.com/u/94229057?v=4";
 
     return Drawer(
       child: Container(
@@ -17,9 +19,7 @@ class MyDrawer extends StatelessWidget {
               padding: EdgeInsets.zero,
               margin: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                ),
+                decoration: BoxDecoration(color: Colors.deepPurple),
                 margin: EdgeInsets.zero,
                 currentAccountPicture: CircleAvatar(
                   backgroundImage: NetworkImage(profilePicUrl),
@@ -42,9 +42,11 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(Icons.home, color: Colors.white),
-              title: Text("Home",
-              style: TextStyle(color: Colors.white),
-              textScaler: TextScaler.linear(1.2),),
+              title: Text(
+                "Home",
+                style: TextStyle(color: Colors.white),
+                textScaler: TextScaler.linear(1.2),
+              ),
             ),
             ListTile(
               leading: Icon(Icons.dashboard, color: Colors.white),
@@ -69,7 +71,18 @@ class MyDrawer extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
                 textScaler: TextScaler.linear(1.2),
               ),
-            )
+            ),
+            ListTile(
+              leading: Icon(Icons.logout, color: Colors.white),
+              title: Text(
+                "Logout",
+                style: TextStyle(color: Colors.white),
+                textScaler: TextScaler.linear(1.2),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, MyRoutes.loginRoute);
+              },
+            ),
           ],
         ),
       ),

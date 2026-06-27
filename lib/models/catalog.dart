@@ -1,5 +1,4 @@
 // Catalog Item Model
-// It is a class that represents a catalog item with its properties such as id, name, description, price, color, and image.
 
 class Item {
   final String id;
