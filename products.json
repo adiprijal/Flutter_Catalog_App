@@ -1,15 +1,15 @@
 {
     "products": [
         {
-            "id": "001",
+            "id": 1,
             "name": "iPhone 12 Pro",
             "desc": "Apple iPhone 12th generation with Super Retina XDR display.",
             "price": 999,
             "color": "#33505a",
-            "image": "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=500&auto=format&fit=crop&q=60"
+            "image": "https://files.refurbed.com/ii/iphone-14-pro-max-1662628210.jpg"
         },
         {
-            "id": "002",
+            "id": 2,
             "name": "Pixel 5",
             "desc": "Google Pixel phone 5th generation with ultimate 5G speed.",
             "price": 699,
@@ -17,15 +17,15 @@
             "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "003",
+            "id": 3,
             "name": "M1 Macbook Air",
             "desc": "Apple MacBook Air with M1 chip, 8GB RAM, and 256GB SSD storage.",
             "price": 999,
             "color": "#e3e4e5",
-            "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500&auto=format&fit=crop&q=60"
+            "image": "https://unsplash.com/photos/an-apple-iphone-11-is-shown-in-this-image-24HAK_jRRvQ?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "004",
+            "id": 4,
             "name": "iPad Pro",
             "desc": "Apple iPad Pro featuring the powerful M2 chip and Liquid Retina display.",
             "price": 799,
@@ -33,7 +33,7 @@
             "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "005",
+            "id": 5,
             "name": "Sony WH-1000XM4",
             "desc": "Wireless premium noise-canceling overhead headphones with long battery life.",
             "price": 348,
@@ -41,7 +41,7 @@
             "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "006",
+            "id": 6,
             "name": "Apple Watch Series 9",
             "desc": "Smartwatch with advanced health metrics and Always-On Retina display.",
             "price": 399,
@@ -49,7 +49,7 @@
             "image": "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "007",
+            "id": 7,
             "name": "Samsung Galaxy S23",
             "desc": "Flagship Android smartphone featuring a high-res 50MP camera system.",
             "price": 799,
@@ -57,7 +57,7 @@
             "image": "https://images.unsplash.com/photo-1678911820864-a24a56c57b5e?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "008",
+            "id": 8,
             "name": "Nintendo Switch OLED",
             "desc": "Versatile gaming console with a vibrant 7-inch OLED screen.",
             "price": 349,
@@ -65,7 +65,7 @@
             "image": "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "009",
+            "id": 9,
             "name": "Dell XPS 13",
             "desc": "Premium ultraportable laptop with a stunning InfinityEdge display.",
             "price": 1199,
@@ -73,7 +73,7 @@
             "image": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500&auto=format&fit=crop&q=60"
         },
         {
-            "id": "010",
+            "id": 10,
             "name": "Logitech MX Master 3S",
             "desc": "Performance wireless mouse designed for developers and creators.",
             "price": 99,
