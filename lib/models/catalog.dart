@@ -2,6 +2,19 @@
 
 class CatalogModel {
   static List<Item> ?items;
+
+
+  // Get Item by id
+  static Item? getById(int id) {
+    try {
+      return items!.firstWhere((element) => element.id == id);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  // Get Item by position
+  static Item getByPosition(int pos) => items![pos];
 }
 
 class Item {
