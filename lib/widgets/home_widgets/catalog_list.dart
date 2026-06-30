@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog_app/pages/home_detail_page.dart';
+import 'package:flutter_catalog_app/widgets/add_to_cart.dart';
 import 'package:flutter_catalog_app/widgets/home_widgets/catalog_image.dart';
-import 'package:flutter_catalog_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_catalog_app/models/catalog.dart';
 
@@ -47,23 +47,14 @@ class CatalogItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                catalog.name.text.lg.color(MyTheme.darkBluishColor).bold.make(),
+                catalog.name.text.lg.color(Theme.of(context).primaryColor).bold.make(),
                 catalog.desc.text.textStyle(context.captionStyle).make(),
                 10.heightBox,
                 OverflowBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   children: [
                     "\$${catalog.price}".text.bold.xl.make(),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(
-                          Color(0xFFF3EDF7),
-                        ),
-                        shape: WidgetStateProperty.all(StadiumBorder()),
-                      ),
-                      child: "Add to Cart".text.make(),
-                    ),
+                    AddToCart(),
                   ],
                 ).pOnly(right: 16),
               ],
@@ -71,6 +62,6 @@ class CatalogItem extends StatelessWidget {
           ),
         ],
       ),
-    ).white.roundedLg.square(150).make().py4();
+    ).color(Theme.of(context).cardColor).roundedLg.square(150).make().py4();
   }
 }

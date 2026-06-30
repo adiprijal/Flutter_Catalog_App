@@ -31,20 +31,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: SingleChildScrollView(
+      color: Theme.of(context).canvasColor,
+      child: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0, 60, 0, 0),
-              child: Image.asset(
-                "assets/images/enter-password.png",
-                height: 200,
-              ),
-            ),
-            SizedBox(height: 20),
-            Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Card(
+              child: Container(
+                padding: const EdgeInsets.fromLTRB(0, 32.0, 0, 8.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
+                  color: Theme.of(context).cardColor,
+                ),
                 child: Column(
                   children: [
                     Text(
