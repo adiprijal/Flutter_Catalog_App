@@ -19,9 +19,7 @@ class ItemsWidget extends StatelessWidget {
             fontWeight: FontWeight.bold
           ),
         ),
-        onTap: () {
-          print("Purchased ${item.name}");
-        }
+        onTap: () {}
       ),
     );
   }
