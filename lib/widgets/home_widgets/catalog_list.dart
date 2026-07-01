@@ -14,7 +14,7 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items!.length,
       itemBuilder: (context, index) {
-        var catalog = CatalogModel.getByPosition(index);
+        var catalog = CatalogModel.items![index];
         return InkWell(
           onTap: () => Navigator.push(
             context,
@@ -54,7 +54,7 @@ class CatalogItem extends StatelessWidget {
                   alignment: MainAxisAlignment.spaceBetween,
                   children: [
                     "\$${catalog.price}".text.bold.xl.make(),
-                    AddToCart(),
+                    AddToCartButton(),
                   ],
                 ).pOnly(right: 16),
               ],

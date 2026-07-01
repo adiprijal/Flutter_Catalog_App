@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class AddToCartButton extends StatelessWidget {
-  const AddToCartButton({super.key});
+class BuyButton extends StatelessWidget {
+  const BuyButton({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: "Buying not supported yet.".text.make()),
+          snackBarAnimationStyle: AnimationStyle(
+            duration: 1.seconds,
+            curve: Curves.easeInOut,
+            reverseDuration: 500.milliseconds,
+          ),
+        );
+      },
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(
           Theme.of(context).buttonTheme.colorScheme?.primary,
@@ -17,7 +26,7 @@ class AddToCartButton extends StatelessWidget {
         ),
         shape: WidgetStateProperty.all(StadiumBorder()),
       ),
-      child: "Add to Cart".text.make().p0(),
-    ).wh(125, 36);
+      child: "Buy".text.xl.make().p0(),
+    );
   }
 }
