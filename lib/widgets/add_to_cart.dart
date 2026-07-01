@@ -1,25 +1,26 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog_app/core/store.dart';
 import 'package:flutter_catalog_app/models/cart.dart';
 import 'package:flutter_catalog_app/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AddToCartButton extends StatelessWidget {
   final Item catalog;
-  AddToCartButton({super.key, required this.catalog});
-
-  final _cart = CartModel();
+  const AddToCartButton({super.key, required this.catalog});
 
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
+    final CartModel _cart = (VxState.store as MyStore).cart!;
+
     bool isInCart = _cart.items.contains(catalog);
     return ElevatedButton(
       onPressed: () {
         if (!isInCart) {
           isInCart = isInCart.toggle();
-          // ignore: no_leading_underscores_for_local_identifiers
-          final _catalog = CatalogModel();
-          _cart.catalog = _catalog;
-          _cart.addItem(catalog);
+          AddMutation(catalog);
           // setState(() {});
         }
       },
