@@ -31,15 +31,20 @@ class __CartListState extends State<_CartList> {
   
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          leading: Icon(Icons.done),
-          trailing: IconButton(
+    return _cart.items.isEmpty ? 
+      ListTile(
+        title: "Your cart is empty".text.center.make(),
+      ) :
+      ListView.builder(
+        itemCount: _cart.items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: Icon(Icons.done),
+            trailing: IconButton(
             icon: Icon(Icons.remove_circle_outline),
             onPressed: () {
               _cart.removeItem(_cart.items[index]);
+              setState(() {});
             },
           ),
           title: _cart.items[index].name.text.make(),
