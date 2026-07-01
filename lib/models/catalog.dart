@@ -5,7 +5,7 @@ class CatalogModel {
 
 
   // Get Item by id
-  static Item? getById(int id) {
+  Item? getById(int id) {
     try {
       return items!.firstWhere((element) => element.id == id);
     } catch (_) {
@@ -14,7 +14,7 @@ class CatalogModel {
   }
 
   // Get Item by position
-  static Item getByPosition(int pos) => items![pos];
+  Item getByPosition(int pos) => items![pos];
 }
 
 class Item {
