@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_catalog_app/core/store.dart';
+import 'package:flutter_catalog_app/models/cart.dart';
 import 'package:flutter_catalog_app/utils/routes.dart';
+import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
 import 'package:flutter_catalog_app/models/catalog.dart';
 import 'package:flutter_catalog_app/widgets/home_widgets/catalog_header.dart';
@@ -15,6 +17,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final url = "https://api.jsonbin.io/v3/b/6a4672b8da38895dfe22c98c";
+
   @override
   void initState() {
     super.initState();
@@ -22,9 +26,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> loadData() async {
-    var catalogJson = await rootBundle.loadString("assets/files/products.json");
+    // Using the URL to fetch data from the API
+    var response = await http.get(Uri.parse(url));
+    var catalogJson = response.body;
     var decodedData = jsonDecode(catalogJson);
-    var productsData = decodedData["products"];
+    var records = decodedData["record"];
+    var productsData = records["products"];
     CatalogModel.items = List.from(
       productsData,
     ).map((item) => Item.fromMap(item)).toList();
@@ -36,14 +43,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).canvasColor,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute)
-        ,
-        shape: CircleBorder(),
-        backgroundColor: context.theme.buttonTheme.colorScheme?.primary,
-        foregroundColor: context.theme.buttonTheme.colorScheme?.secondary,
-        child: Icon(Icons.shopping_cart),
-      ),
+      floatingActionButton: FloatingCartButton(),
       body: SafeArea(
         child: Container(
           padding: Vx.m16,
@@ -57,6 +57,36 @@ class _HomePageState extends State<HomePage> {
                 CircularProgressIndicator().centered().expand(),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class FloatingCartButton extends StatelessWidget {
+  const FloatingCartButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final cart = (VxState.store as MyStore).cart!;
+    return VxBuilder(
+      mutations: {AddMutation, RemoveMutation},
+      builder: (ctx, _, _) => FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute)
+        ,
+        shape: CircleBorder(),
+        backgroundColor: context.theme.buttonTheme.colorScheme?.primary,
+        foregroundColor: context.theme.buttonTheme.colorScheme?.secondary,
+        child: Icon(Icons.shopping_cart),
+      ).badge(
+        color: Vx.red500,
+        size: 20,
+        count: cart.items.length,
+        textStyle: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

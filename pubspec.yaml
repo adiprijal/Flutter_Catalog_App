@@ -32,7 +32,9 @@ dependencies:
     flutter:
         sdk: flutter
     google_fonts: ^8.1.0
+    http: ^1.6.0
     velocity_x: ^4.3.1
+    
 
 dev_dependencies:
     # The "flutter_lints" package below contains a set of recommended lints to
