@@ -10,7 +10,29 @@ class CatalogList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return !context.isMobile ? ClipRect(
+      child: GridView.builder(
+        shrinkWrap: true,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 16
+        ),
+        itemCount: CatalogModel.items!.length,
+        itemBuilder: (context, index) {
+          var catalog = CatalogModel.items![index];
+          return InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeDetailPage(catalog: catalog),
+              ),
+            ),
+            child: CatalogItem(catalog: catalog),
+          );
+        },
+      ),
+    ) 
+    : ListView.builder(
       shrinkWrap: true,
       itemCount: CatalogModel.items!.length,
       itemBuilder: (context, index) {
@@ -35,9 +57,7 @@ class CatalogItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return VxBox(
-      child: Row(
-        children: [
+    var children = [
           Hero(
             tag: Key(catalog.id.toString()),
             child: CatalogImage(imageUrl: catalog.image),
@@ -58,9 +78,15 @@ class CatalogItem extends StatelessWidget {
                   ],
                 ).pOnly(right: 16),
               ],
-            ),
+            ).p(context.isMobile ? 0 : 16),
           ),
-        ],
+        ];
+    return VxBox(
+      child: context.isMobile? Row(
+        children: children,
+      )
+      : Column(
+        children: children,
       ),
     ).color(Theme.of(context).cardColor).roundedLg.square(150).make().py4();
   }
